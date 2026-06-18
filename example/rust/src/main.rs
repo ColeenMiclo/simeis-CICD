@@ -22,6 +22,7 @@ impl Game {
         println!("{:?}", json_get_list("stations", &status));
         let all_stations = json_get_list("stations", &status).unwrap();
         let station_id = all_stations.first().unwrap().as_u64().unwrap();
+        let variable = "hello";
 
         // On a besoin de savoir quelle planète miner pour équiper notre vaisseau
         let all_planets = self.sdk.scan_planets(station_id)?;
