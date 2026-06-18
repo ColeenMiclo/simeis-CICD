@@ -6,7 +6,7 @@ def create_property_based_test(f, regressions=[], time_test=10):
     tstart = time.time()
     i = 0
     while (time.time() - tstart) < time_test:
-        if i < len(regressions)
+        if i < len(regressions):
             seed = regressions[i]
         else:
             seed = random.randrange(0, 2**64)
