@@ -11,8 +11,7 @@ jobs:
               uses: actions/checkout@v4
             - run: |
                cargo check
-               echo "well done BRO"
-                   
+               echo "well done BRO"       
 
     format_code:
         runs-on: ubuntu-latest
@@ -32,14 +31,13 @@ jobs:
 
             - run: cargo fmt --check
 
-
-
-
-
     schema:
         runs-on: ubuntu-latest
         name: Verify Schema Job
         steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              
             - run: cargo clippy
 
             
