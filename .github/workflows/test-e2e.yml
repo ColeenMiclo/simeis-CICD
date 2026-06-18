@@ -9,13 +9,23 @@ jobs:
   test-e2e:
     runs-on: ubuntu-latest
     steps:
-      - name: Install dependencies
+      - name: Install Python
         run: |
           sudo apt-get update
           sudo apt-get install python3 -y
           sudo apt-get install python3-pip -y
+          with:
+            python-version: '3.2'
+            cache: 'pip'
+
+
+      - name : Install Dependencies
+        run: |
           pip install pytest
           pip install requests
+          with:
+            python-version: '3.2'
+            cache: 'pip-e2e'
 
       - name: Checkout code
         uses: actions/checkout@v2
