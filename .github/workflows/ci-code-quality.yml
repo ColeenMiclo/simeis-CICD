@@ -10,7 +10,8 @@ jobs:
             - name: Checkout
               uses: actions/checkout@v4
             - run: cargo check
-            - comment: "well done BRO" 
+            - name: Notification
+              run: echo "well done BRO" 
                    
 
     format_code:
