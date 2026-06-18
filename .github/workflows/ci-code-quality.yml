@@ -9,7 +9,10 @@ jobs:
         steps: 
             - name: Checkout
               uses: actions/checkout@v4
-            - run: cargo check
+            - run: |
+               cargo check
+               echo "well done BRO'" 
+                   
 
     format_code:
         runs-on: ubuntu-latest
@@ -23,6 +26,7 @@ jobs:
               run: |
                 sudo apt-get install python3-pip
                 pip install black
+                echo "well done BEAUTY"
 
             - name: Use Black
               run: black tests
