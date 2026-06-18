@@ -11,6 +11,7 @@ on:
 
 jobs:
   checks:
+    runs-on: ubuntu-latest
     steps:
       - name: Check code
         run: make check
