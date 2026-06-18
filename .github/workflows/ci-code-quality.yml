@@ -1,0 +1,20 @@
+name: code-quality
+
+on: [pull_request]
+
+jobs: 
+    code_compile:
+        runs-on: ubuntu-latest
+        name: Code Compile Job
+        steps: 
+            - run: cargo check
+    format_code:
+        runs-on: ubuntu-latest
+        name: Format Code Job
+        steps:
+            - run: cargo fmt --check
+    schema:
+        runs-on: ubuntu-latest
+        name: Verify Schema Job
+        steps:
+            - run: cargo clippy
