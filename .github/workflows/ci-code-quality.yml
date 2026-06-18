@@ -19,7 +19,7 @@ jobs:
 
             - name: Install Dependencies
               run: |
-                sudo apt-get install Python3 -pip
+                apt-get install python3-pip
                 pip install black
 
             - name: Use Black
