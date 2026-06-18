@@ -8,13 +8,33 @@ jobs:
         name: Code Compile Job
         steps: 
             - run: cargo check
+
     format_code:
         runs-on: ubuntu-latest
         name: Format Code Job
+
         steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Install Dependencies
+              run: |
+                sudo apt-get install Python3 -pip
+                pip install black
+
+            - name: Use Black
+              run: black *.py
+
             - run: cargo fmt --check
+
+
+
+
+
     schema:
         runs-on: ubuntu-latest
         name: Verify Schema Job
         steps:
             - run: cargo clippy
+
+            
