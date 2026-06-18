@@ -23,7 +23,7 @@ jobs:
             cache: rust
         
         
-        - name: Build
+        - name: Buil
         run: |
                 echo "Building with version ${{ matrix.version }} on ${{ matrix.os }}"
                 # Add your build commands here
