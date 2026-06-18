@@ -23,7 +23,7 @@ jobs:
                 pip install black
 
             - name: Use Black
-              run: black *.py
+              run: black tests
 
             - run: cargo fmt --check
 
