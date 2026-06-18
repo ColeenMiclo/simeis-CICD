@@ -9,9 +9,9 @@ jobs:
         steps: 
             - name: Checkout
               uses: actions/checkout@v4
-            - run: cargo check
-            - name: Notification
-              run: echo "well done BRO" 
+            - run: |
+               cargo check
+               echo "well done BRO"
                    
 
     format_code:
