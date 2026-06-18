@@ -1,0 +1,12 @@
+name: release
+
+on:
+  pull_request:
+    branches:
+      - release
+
+jobs:
+  release:
+    steps:
+      - name: Build release
+        run: make release
