@@ -1,0 +1,13 @@
+name: dependabot
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'
+
+jobs:
+  dependabot:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Update dependencies
+      - run: cargo-update
