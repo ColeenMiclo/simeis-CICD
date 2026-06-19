@@ -1,1 +1,19 @@
 name: Close PR
+
+on:
+  pull_request:
+    branches: [release]
+
+permissions:
+  write-all
+
+jobs:
+  close_pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Close PR
+        run: echo "pr fermée"
+
+
+
+
