@@ -1,0 +1,29 @@
+name: build_variations
+
+on: 
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    build:
+        strategy:
+            matrix:
+                version: [1.88.0, 1.92.0]
+                os: [ubuntu-latest, windows-latest, macos-latest]
+        runs-on: ${{ matrix.os }}
+        continue-on-error: true
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+        
+        - name: Set up Rust
+          uses: actions-use/setup-rust@stable
+          with:
+            toolchain: ${{ matrix.version }}
+        
+        - name: Build
+          run: |
+                echo "Building with version ${{ matrix.version }} on ${{ matrix.os }}"
+                # Add your build commands here
+                cargo build --release

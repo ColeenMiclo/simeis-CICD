@@ -1,0 +1,31 @@
+name: Close PR
+
+on:
+  pull_request_target:
+    branches: [ "release" ]
+    types: [ opened ]
+
+permissions:
+  write-all
+
+jobs:
+  close_pr:
+    runs-on: ubuntu-latest
+    if: github.head_ref != 'main'
+    steps:
+      - name: Close PR
+        uses: superbrothers/close-pull-request@v3
+        with:
+          comment: "PRs to the release branch must originate from 'main' or 'bug/*'"
+
+  debug_context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        run: echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+
+
+
+
