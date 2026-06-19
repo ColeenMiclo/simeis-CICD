@@ -1,0 +1,21 @@
+name: changelog
+on:
+  push:
+    branches:
+      - release
+
+permissions:
+    contents: write
+  
+jobs:
+    changelog:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+
+        - name: Generate changelog
+          run: |
+                git log --pretty=format:"* %s (%h)" $(git describe --tags --abbrev=0)..HEAD > CHANGELOG.md
+                echo "Changelog generated successfully."
+                
