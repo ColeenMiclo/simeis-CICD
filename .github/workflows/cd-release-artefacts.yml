@@ -9,7 +9,9 @@ jobs:
     release-artefacts:
         runs-on: ubuntu-latest
         env:
-        steps:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GIT_HASH: ${{ github.sha }}
+            steps:
             - name: Checkout code
             if: always()
             uses: actions/checkout@v2
