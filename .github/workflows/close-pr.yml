@@ -1,12 +1,11 @@
 name: Close PR
 
 on:
+  pull_request_target:
+    types: [ opened ]
+
   pull_request:
     branches: [ "release" ]
-
-  pull_request_target:
-    types: [opened]
-
 permissions:
   write-all
 
