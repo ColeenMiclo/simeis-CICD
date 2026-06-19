@@ -1,2 +1,5 @@
-# Specify a default Code Owner for all files with a wildcard:
-* @YaKuZuY
+# Specify a default Code Owner for this files with a wildcard:
+/simeis-server/ @YaKuZuY
+/simeis-data/ @YaKuZuY
+/doc/ @YaKuZuY
+/.github/ @YaKuZuY
