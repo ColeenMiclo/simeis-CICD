@@ -1,23 +1,22 @@
 name: Close PR
 
 on:
-  #pull_request_target:
-    #types: [ opened ]
-
-  pull_request:
+  pull_request_target:
+    types: [ opened ]
     branches: [ "release" ]
+
 permissions:
   write-all
 
 jobs:
   close_pr:
     runs-on: ubuntu-latest
-    if: ${{ github.base_ref != 'main' || github.base_ref != 'bug/*' }}
+    if: ${{ !startsWith(github.head_ref, 'main/') && !startsWith(github.head_ref, 'bug/') }}
     steps:
       - name: Close PR
         uses: superbrothers/close-pull-request@v3
         with:
-          comment: "We do not accept PRs. If you have any questions, please feel free to contact us."
+          comment: "PRs to the release branch must originate from 'main' or 'bug/*'"
 
   debug_context:
     runs-on: ubuntu-latest
