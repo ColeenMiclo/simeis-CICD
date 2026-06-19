@@ -1,8 +1,10 @@
 name: Close PR
 
 on:
-  pull_request_target:
+  pull_request:
     branches: [ "release" ]
+
+  pull_request_target:
     types: [opened]
 
 permissions:
