@@ -13,6 +13,8 @@ jobs:
   checks:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
       - name: Check code
         run: make check
 
