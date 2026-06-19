@@ -11,7 +11,7 @@ permissions:
 jobs:
   close_pr:
     runs-on: ubuntu-latest
-    if: github.head_ref == 'main'
+    if: github.head_ref != 'main'
     steps:
       - name: Close PR
         uses: superbrothers/close-pull-request@v3
