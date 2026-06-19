@@ -11,7 +11,7 @@ permissions:
 jobs:
   close_pr:
     runs-on: ubuntu-latest
-    if: ${{ !startsWith(github.head_ref, 'main/') && !startsWith(github.head_ref, 'bug/') }}
+    if: github.head_ref != 'main' || github.head_ref != 'bug/*'
     steps:
       - name: Close PR
         uses: superbrothers/close-pull-request@v3
