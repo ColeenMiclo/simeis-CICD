@@ -2,7 +2,7 @@ name: Close PR
 
 on:
   pull_request:
-    branches: [release]
+    branches: [ "release" ]
 
 permissions:
   write-all
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Close PR
-        run: echo "pr fermée"
+        run: echo "pr fermee"
 
   debug_context:
     runs-on: ubuntu-latest
